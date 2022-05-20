@@ -1,38 +1,169 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap');
+*{
+  box-sizing: border-box;
+  margin:0;
+}
+
+body{
+  font-family: 'Radio Canada', sans-serif;
+}
+.navbar{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #222;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+.option{
+  cursor: pointer;
+  border:none;
+  text-decoration: none;
+}
+
+.option-acces{
+  padding: 5px 30px;
+  background: darkslategray;
+  color:white;
+  margin: 0 5px;
+}
+
+.option-main{
+  background: transparent;
+  padding:2px 30px;
+}
+
+.option:hover{
+  background-color: black;
+  transition: .9s;
+}
+.option-main:hover{
+  background-color:transparent;
+  border:1px dotted blue;
+  border-radius:2px;
+  transition: .9s;
+}
+
+.container{
+  width: 90%;
+  margin: 3% auto auto;
+  padding:1px;
+}
+
+.post{
+  margin:10px auto;
+  width: 98%;
+  height: 300px;
+  border:dotted 1px black;
+}
+
+.main-post{
+  margin:10px auto;
+  width: 98%;
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+}
+
+.main-resource{
+  margin:10px 3%;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+
+.main-message{
+  margin-top:2%;
   text-align: center;
+  font-size:20px;
+  font-weight:bold;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-logo{
+  height:100px;
+  width:100px;
+  margin:0 3%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form-data{
+  margin-top:5%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 50%;
+  padding: 2%;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.input-data{
+  margin: 1% 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-send{
+  width:30%;
+  border:1px solid black;
+  color:black;
+  border-radius: 2px;
+  margin: 2% auto;
+  cursor: pointer;
+}
+
+.btn-send:hover{
+  background-color:red;
+  color:white;
+  border:1px solid white;
+}
+
+.products{
+  width:90%;
+}
+
+.product-list{
+  width:100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.product-item{
+  border:1px dotted black;
+  padding:3px;
+}
+
+.image-product{
+  margin: 2% 0;
+  width:98%;
+  height:200px;
+}
+.formUpdate{
+  border:1px dotted black;
+  display:flex;
+  flex-direction:column;
+  padding:5px;
+  margin:2% auto;
+}
+
+.align-button{
+  margin:2px auto;
+  justify-content:center;
+}
+
+.product-title{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.product-price{
+  font-weight:bold;
+}
+
+.icon-button{
+  height:16px;
+  width:16px;
 }
