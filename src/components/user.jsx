@@ -7,16 +7,20 @@ import Products from'./products';
 export default function User(){
     let [forms,setForms]=useState(false);
     let cookie=new Cookies();
+
     function changes(select){
         if(select==="a")setForms(false);
         else setForms(true);
     }
+
     return(
         <div>
             <nav className="navbar">
               <Link to="/" className="option option-main"><img src="/atom.png" width="20" height="20"/></Link>
               <div className="options">
-                  <p className="option-acces">{cookie.get('username')}</p>
+                <h4 className="option-acces title-username-nav">{cookie.get('username')}</h4>
+                <Link to="edit" className="option option-acces">Edit Data</Link>
+                <Link to="/" className="option option-acces">Logout</Link>
               </div>
             </nav>
             <main className="container">
@@ -34,6 +38,3 @@ export default function User(){
         </div>
     );
 };
-
-/*
-<Route path="/contact"><User/></Route>*/

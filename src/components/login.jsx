@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {Link,useNavigate}from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import axios from 'axios';
@@ -18,7 +18,8 @@ const Login=()=>{
         if(response.status === 200){
             cookie.set('token',response.data.token);
             cookie.set('username',response.data.user.userName);
-            return navigate('/profile');
+            cookie.set('email',response.data.user.email);
+            return navigate('/user');
         }
         e.target.reset();
     };

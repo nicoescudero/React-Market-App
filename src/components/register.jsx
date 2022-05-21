@@ -1,10 +1,14 @@
 import React from 'react';
-import {Link}from 'react-router-dom';
+import {Link,useNavigate}from 'react-router-dom';
 import "../App.css";
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
 
 const Register = ()=>{
+    const cookie=new Cookies();
+    let navigate = useNavigate();
     const {register,handleSubmit,formState: { errors }} = useForm();
     const onSubmit=async(data,e)=>{
         const response=await axios.post('/user/signUp',{
@@ -12,7 +16,12 @@ const Register = ()=>{
           email: data.email,
           password: data.password
         });
-        console.log(`RESPONSE: ${response}`);
+        if(response.status===201){
+            cookie.set('token',response.data.token);
+            cookie.set('username',response.data.user.userName);
+            cookie.set('email',response.data.user.email);
+            return navigate('/user');
+        }
         e.target.reset();
     };
 

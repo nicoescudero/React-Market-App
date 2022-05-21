@@ -16,7 +16,6 @@ export default function Edit(props){
     };
 
     async function Update(data,e){
-        console.log(data);
         let formdata=new FormData();
         formdata.append('name',data.name);
         formdata.append('description',data.description);

@@ -68,7 +68,6 @@ export default function Products(){
                 }
                 </div>
                 :<p>Sin publicaciones</p>
-            
             }
         </div>
     );

@@ -25,6 +25,11 @@ body{
   text-decoration: none;
 }
 
+.options{
+  display:flex;
+  flex-direction: row;
+}
+
 .option-acces{
   padding: 5px 30px;
   background: darkslategray;
@@ -166,4 +171,8 @@ body{
 .icon-button{
   height:16px;
   width:16px;
+}
+
+.title-username-nav{
+  cursor: default;
 }
