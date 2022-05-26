@@ -2,9 +2,10 @@ import React,{useState,useEffect} from 'react';
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 import Edit from './edit';
+import {useNavigate} from 'react-router-dom';
 
 export default function Products(){
-
+    const navigate= useNavigate();
     const cookie=new Cookies();
     const [userData,setUserData] = useState([]);
     const [updateForm,setUpdateForm]= useState(false);
@@ -15,18 +16,21 @@ export default function Products(){
         price:'',
     });
 
-    useEffect(()=>{
-        cargar();
-    },[0]); 
+    useEffect(()=>{cargar();},[0]); 
 
-    async function cargar(){
+async function cargar(){
+    try {
         const response=await axios({
             method: 'get',
-            url:'products/all',
+            url:'/products',
             headers: { Authorization: `Bearer ${cookie.get('token')}` }
         });
-        if(response.status === 200)setUserData(response.data);
-    }; 
+        if(response.request.status === 200);
+        setUserData(response.data);
+    } catch (error) {
+        return navigate('/login');
+    };
+}; 
 
     async function Delete(id){
         const response=await axios({

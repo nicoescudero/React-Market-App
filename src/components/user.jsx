@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Link}from 'react-router-dom';
+import {Link,useNavigate}from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import Create from'./create';
 import Products from'./products';
@@ -7,16 +7,21 @@ import Products from'./products';
 export default function User(){
     let [forms,setForms]=useState(false);
     let cookie=new Cookies();
-
+    const navigate=useNavigate();
+    
     function changes(select){
         if(select==="a")setForms(false);
         else setForms(true);
     }
 
+    function loadPublications(){
+        return navigate('/publications');
+    }
+
     return(
         <div>
             <nav className="navbar">
-              <Link to="/" className="option option-main"><img src="/atom.png" width="20" height="20"/></Link>
+              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
               <div className="options">
                 <h4 className="option-acces title-username-nav">{cookie.get('username')}</h4>
                 <Link to="edit" className="option option-acces">Edit Data</Link>

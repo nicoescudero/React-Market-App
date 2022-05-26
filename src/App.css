@@ -138,6 +138,7 @@ body{
 
 .product-item{
   border:1px dotted black;
+  border-radius:2px;
   padding:3px;
 }
 
@@ -175,4 +176,61 @@ body{
 
 .title-username-nav{
   cursor: default;
+}
+
+.notfoundA{
+  background-color: #222;
+  width: 100%;
+  height: 50vmax;
+}
+
+.notfoundB{
+  text-align: center;
+  margin:20% auto;
+  color: blue;
+}
+
+.publication{
+  width:80%;
+  margin: 2% auto;
+  padding:10px;
+}
+
+.comments{
+  display:flex;
+  flex-direction: column;
+  width: 98%;
+  margin: 2% auto;
+  padding:5px;
+  border:1px solid black;
+  border-radius:5px;
+}
+
+.form-comment{
+  display:flex;
+  flex-direction: row;
+  margin: 1%;
+}
+.comment-input{
+  width:80%;
+  border:1px solid black;
+  border-radius:2px;
+  margin-right: 1%;
+}
+
+.text-publication{
+  margin:2px 0;
+  font-weight: bold;
+}
+
+.title-publication{
+  font-size:20px;
+}
+
+.text-username{
+  color:rgb(12, 12, 199);
+}
+
+.text-comment{
+  margin-left: 1%;
 }

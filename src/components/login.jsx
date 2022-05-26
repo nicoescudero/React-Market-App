@@ -5,12 +5,13 @@ import axios from 'axios';
 import Cookie from 'universal-cookie';
 
 import "../App.css";
-const Login=()=>{
-    const {register,handleSubmit,formState: { errors }} = useForm();
-    let navigate = useNavigate();
-    const cookie=new Cookie();
+export default function Login(){
+        const {register,handleSubmit,formState: { errors }} = useForm();
+        let navigate = useNavigate();
+        const cookie=new Cookie();
     
-    const onSubmit=async(data,e)=>{
+    async function onSubmit(data,e){
+        try {
         const response=await axios.post('/user/signIn',{
             email: data.email,
             password: data.password
@@ -22,6 +23,9 @@ const Login=()=>{
             return navigate('/user');
         }
         e.target.reset();
+        } catch (error) {
+            return navigate('/login');
+        }
     };
     return(
         <div>
@@ -41,12 +45,10 @@ const Login=()=>{
                         <button type="submit" className="btn-send">Login</button>
                     </form>
                     <span>
-                    {errors.username && errors.email && errors.password}
+                    {errors.message}
                     </span>
                 </section>
             </main>
         </div>
     );
 };
-
-export default Login;

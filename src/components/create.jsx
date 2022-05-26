@@ -20,7 +20,6 @@ export default function Create(){
             data: formData,
             headers: { Authorization: `Bearer ${cookie.get('token')}` }
         });
-        console.log(`RESPONSE: ${response}`);
         e.target.reset();
     }
     return (
