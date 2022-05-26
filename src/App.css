@@ -48,7 +48,7 @@ body{
 }
 .option-main:hover{
   background-color:transparent;
-  border:1px dotted blue;
+  border:1px dotted rgb(12, 12, 199);
   border-radius:2px;
   transition: .9s;
 }
@@ -111,20 +111,11 @@ body{
 
 .btn-send{
   width:30%;
-  border:1px solid black;
-  color:black;
-  border-radius: 2px;
-  margin: 2% auto;
-  cursor: pointer;
-}
-
-.btn-send:hover{
-  background-color:red;
-  color:white;
-  border:1px solid white;
+  margin: 1% auto;
 }
 
 .products{
+  margin:2% auto;
   width:90%;
 }
 
@@ -137,9 +128,9 @@ body{
 }
 
 .product-item{
-  border:1px dotted black;
+  border:1px solid black;
   border-radius:2px;
-  padding:3px;
+  padding:10px;
 }
 
 .image-product{
@@ -148,10 +139,6 @@ body{
   height:200px;
 }
 .formUpdate{
-  border:1px dotted black;
-  display:flex;
-  flex-direction:column;
-  padding:5px;
   margin:2% auto;
 }
 
@@ -163,6 +150,8 @@ body{
 .product-title{
   font-size:20px;
   font-weight:bold;
+  text-decoration: none;
+  color:darkslategray;
 }
 
 .product-price{
@@ -233,4 +222,15 @@ body{
 
 .text-comment{
   margin-left: 1%;
+}
+
+.products-notFound{
+  margin: 2% 42%;
+  text-align: center;
+  display: inline-block;
+}
+
+.last-comments{
+  font-style: italic;
+  margin-bottom: 1%;
 }

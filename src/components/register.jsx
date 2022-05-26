@@ -37,13 +37,16 @@ const Register = ()=>{
             <main className="container">
                 <section className="main-post">
                 <form onSubmit={handleSubmit(onSubmit)} className="form-data">
-                    <input  type="text" name="username" id="username" placeholder="Ingresar Username" className="input-data" 
+                    <label htmlFor="username">Username</label>
+                    <input  type="text" name="username" className="input-data" maxlength="20" 
                         {...register('username', { required: true,message:'Username Required'})}/>
-                    <input  type="email" name="email" id="email" placeholder="Ingresar Email" className="input-data" 
+                    <label htmlFor="email">Email</label>
+                    <input  type="email" name="email" className="input-data" maxlength="40" 
                         {...register('email', { required: true,message:'Email Required'})}/>
-                    <input  type="password" name="password" id="password" placeholder="Ingresar Contraseña" className="input-data" 
+                    <label htmlFor="password">Password</label>
+                    <input  type="password" name="password" className="input-data" maxlength="30" 
                         {...register('password', { required: true,message:'Password Required'})}/>
-                    <button type="submit" className="btn-send">Register</button>
+                    <button type="submit" className="option option-acces btn-send">Register</button>
                 </form>
                 <span>
                     {errors.username && errors.email && errors.password}

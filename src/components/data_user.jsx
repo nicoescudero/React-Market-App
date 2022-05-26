@@ -74,7 +74,7 @@ export default function Data(){
                     <label htmlFor="newPassword">New Password</label>
                     <input type="password" name="newPassword" className="input-data" 
                         {...register('newPassword', { required: true,message:'Password Required'})}/>
-                    <button type="submit" className="btn-send">Update</button>
+                    <button type="submit" className="option option-acces btn-send">Update</button>
                   </form>
               </section>
             </main>

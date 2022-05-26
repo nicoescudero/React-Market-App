@@ -69,11 +69,11 @@ export default function Post(){
                     <p className="text-publication">Price: ${price}</p>
                     <div className="comments">
                         <form onSubmit={handleSubmit(createComment)} className="form-comment">
-                            <input type="text" name="comment" className="comment-input"
+                            <input type="text" name="comment" className="comment-input" maxlength="90"
                             {...register('comment', { required: true,message:'Comment Required'})}/>
                             <button type="submit" className="option option-acces">Comment</button>
                         </form>
-                        <p>Last Comments</p>
+                        <p className="last-comments">Last Comments</p>
                         {
                             comments.map((item,index)=>{
                             return <div key={index}>

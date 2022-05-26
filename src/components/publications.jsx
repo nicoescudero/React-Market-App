@@ -53,7 +53,7 @@ export default function Publications(){
                             </div>
                         })}
                         </div>
-                    :<p>No Products Published</p>
+                    :<p className="products-notFound">No Products Published</p>
                     }
                 </section>
             </main>
