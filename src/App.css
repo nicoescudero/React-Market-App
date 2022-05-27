@@ -33,6 +33,7 @@ body{
 .option-acces{
   padding: 5px 30px;
   background: darkslategray;
+  border-radius:5px;
   color:white;
   margin: 0 5px;
 }
@@ -40,6 +41,8 @@ body{
 .option-main{
   background: transparent;
   padding:2px 30px;
+  border:1px solid darkslategray;
+  border-radius:5px;
 }
 
 .option:hover{
@@ -48,8 +51,7 @@ body{
 }
 .option-main:hover{
   background-color:transparent;
-  border:1px dotted rgb(12, 12, 199);
-  border-radius:2px;
+  border:1px solid blue;
   transition: .9s;
 }
 
@@ -137,6 +139,13 @@ body{
   margin: 2% 0;
   width:98%;
   height:200px;
+  object-fit: cover;
+  filter:brightness(70%);
+}
+
+.image-product:hover{
+  filter:brightness(100%);
+
 }
 .formUpdate{
   margin:2% auto;
@@ -152,6 +161,10 @@ body{
   font-weight:bold;
   text-decoration: none;
   color:darkslategray;
+}
+.product-title:hover{
+  color:rgb(12, 12, 199);
+  transition: .9s;
 }
 
 .product-price{
@@ -181,9 +194,19 @@ body{
 
 .publication{
   width:80%;
-  margin: 2% auto;
+  margin: 1% auto;
   padding:10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1000px;
 }
+
+.post-image-product{
+  margin: 1px auto;
+  width: 500px;
+  height: 400px;
+  object-fit: contain;
+};
 
 .comments{
   display:flex;
@@ -233,4 +256,10 @@ body{
 .last-comments{
   font-style: italic;
   margin-bottom: 1%;
+}
+
+.errors{
+  color:red;
+  font-size:12px;
+  font-style: italic;
 }

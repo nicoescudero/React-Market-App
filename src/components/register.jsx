@@ -39,18 +39,18 @@ const Register = ()=>{
                 <form onSubmit={handleSubmit(onSubmit)} className="form-data">
                     <label htmlFor="username">Username</label>
                     <input  type="text" name="username" className="input-data" maxlength="20" 
-                        {...register('username', { required: true,message:'Username Required'})}/>
+                        {...register('username', { required: {value: true,message:'Username Required'}, pattern:{ value: /^[a-z0-9_-]{3,16}$/, message:'Username must not contain spaces and special characters.'}})}/>
+                        <span className="errors">{errors.username?.message}</span>
                     <label htmlFor="email">Email</label>
-                    <input  type="email" name="email" className="input-data" maxlength="40" 
-                        {...register('email', { required: true,message:'Email Required'})}/>
+                    <input  type="email" name="email" className="input-data" maxlength="40"
+                        {...register('email', { required: {value:true, message:'Email Required'}, pattern: {value: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,message: 'Insert a valid Email'}})}/>
+                        <span className="errors">{errors.email?.message}</span>
                     <label htmlFor="password">Password</label>
-                    <input  type="password" name="password" className="input-data" maxlength="30" 
-                        {...register('password', { required: true,message:'Password Required'})}/>
+                    <input  type="password" name="password" id="password" className="input-data" maxlength="30"
+                        {...register('password', { required: {value:true,message:'Password Required'},minLength:{value:8, message:'Minimum 8 characters'}})}/>
+                        <span className="errors">{errors.password?.message}</span>
                     <button type="submit" className="option option-acces btn-send">Register</button>
                 </form>
-                <span>
-                    {errors.username && errors.email && errors.password}
-                </span>
                 </section>
             </main>
         </div>

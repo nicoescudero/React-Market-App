@@ -38,17 +38,16 @@ export default function Login(){
             <main className="container">
                 <section className="main-post">
                     <form onSubmit={handleSubmit(onSubmit)} className="form-data">
-                    <label htmlFor="email">Email</label>
-                    <input  type="email" name="email" className="input-data" maxlength="40"
-                        {...register('email', { required: true,message:'Email Required'})}/>
-                    <label htmlFor="password">Password</label>
-                    <input  type="password" name="password" id="password" className="input-data" maxlength="30"
-                        {...register('password', { required: true,message:'Password Required'})}/>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" className="input-data" maxlength="40"
+                            {...register('email', { required: {value:true, message:'Email Required'}, pattern: {value: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,message: 'Insert a valid Email'}})}/>
+                            <span className="errors">{errors.email?.message}</span>
+                        <label htmlFor="password">Password</label>
+                        <input  type="password" name="password" id="password" className="input-data" maxlength="30"
+                            {...register('password', { required: {value:true,message:'Password Required'},minLength:{value:8, message:'Minimum 8 characters'}})}/>
+                             <span className="errors">{errors.password?.message}</span>
                         <button type="submit" className="option option-acces btn-send">Login</button>
                     </form>
-                    <span>
-                    {errors.message}
-                    </span>
                 </section>
             </main>
         </div>

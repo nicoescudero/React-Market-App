@@ -25,7 +25,7 @@ export default function Post(){
             method: 'get',
             headers: { Authorization: `Bearer ${cookie.get('token')}` }
         });
-        await setComments(response.data);
+        await setComments(response.data.reverse());
     };
 
     function loadUser(){
@@ -64,7 +64,7 @@ export default function Post(){
             <section className="products">
                 <div className="publication">
                     <p className="text-publication title-publication">{name}</p>
-                    <img src={"http://localhost:3000/"+image}  className="image-product"/>
+                    <img src={"http://localhost:3000/"+image}  className="post-image-product"/>
                     <p>{description}</p>
                     <p className="text-publication">Price: ${price}</p>
                     <div className="comments">

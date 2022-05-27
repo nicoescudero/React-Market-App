@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import {NavLink,Link,useNavigate}from 'react-router-dom';
+import {Link,useNavigate}from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
 export default function Publications(){
@@ -17,7 +17,7 @@ export default function Publications(){
             url:'/products/all',
             headers: { Authorization: `Bearer ${cookie.get('token')}` }
         });
-        if(response.status !== 401)setProducts(response.data);
+        if(response.status !== 401)setProducts(response.data.reverse());
     }
 
     function loadUser(){
@@ -35,7 +35,6 @@ export default function Publications(){
               <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
               <div className="options">
                 <button className="option-acces option" onClick={()=>loadUser()}>{cookie.get('username')}</button>
-                <Link to="/" className="option option-acces">Logout</Link>
               </div>
             </nav>
             <main className="container">
