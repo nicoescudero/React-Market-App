@@ -16,7 +16,7 @@ export default function Products(){
         price:'',
     });
 
-    useEffect(()=>{cargar();},[0]); 
+    useEffect(()=>{cargar();},[]); 
 
 async function cargar(){
     try {
@@ -59,12 +59,12 @@ async function cargar(){
                     userData.map((item,index) => {
                     return <div key={index} className="product-item">
                         <div className="align-button">
-                        <button type="submit" onClick={()=>showForm(item)} className="option option-acces"><img src="/editing.png" className="icon-button"/></button>
-                        <button type="submit" onClick={()=>Delete(item._id)} className="option option-acces"><img src="/trash.png" className="icon-button"/></button>
+                        <button type="submit" onClick={()=>showForm(item)} className="option option-acces"><img src="/editing.png" alt="" className="icon-button"/></button>
+                        <button type="submit" onClick={()=>Delete(item._id)} className="option option-acces"><img src="/trash.png" alt="" className="icon-button"/></button>
                         </div>
                         <p className="product-title">{item.name}</p>
                         <p>{item.description}</p>
-                        <img src={"http://localhost:3000/"+item.url_image}  className="image-product"/>
+                        <img src={"http://localhost:3000/"+item.url_image} alt="" className="image-product"/>
                         <p className="product-price">${item.price}</p>
                         </div>
                     })}

@@ -28,7 +28,7 @@ export default function User(){
     return(
         <div>
             <nav className="navbar">
-              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
+              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" alt="" width="20" height="20"/></button>
               <div className="options">
                 <h4 className="option-acces title-username-nav">{cookie.get('username')}</h4>
                 <Link to="edit" className="option option-acces">Edit Data</Link>

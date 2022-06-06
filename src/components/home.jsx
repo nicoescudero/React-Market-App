@@ -2,7 +2,6 @@ import React from 'react';
 import '../App.css';
 import {Link}from 'react-router-dom';
 
-
 const home=()=>{
   return(
     <div>
@@ -19,7 +18,7 @@ const home=()=>{
             <img alt="" src="/triangle.png" className="main-logo"/>
             <p className="main-message">Welcome to  my web marketplace!</p>
           </div>
-            <img alt="" src="/students.jpg" class="img-main"/>
+            <img alt="" src="/students.jpg" className="img-main"/>
         </section>
       </main>
       </div>

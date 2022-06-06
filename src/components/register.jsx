@@ -25,11 +25,12 @@ const Register = ()=>{
         e.target.reset();
     };
 
+    /* eslint-disable no-useless-escape */
 
     return(
         <div>
             <nav className="navbar">
-              <Link to="/" className="option option-main"><img src="/atom.png" width="20" height="20"/></Link>
+              <Link to="/" className="option option-main"><img src="/atom.png" alt="" width="20" height="20"/></Link>
               <div className="options">
                   <p className="option-acces">Register</p>
               </div>

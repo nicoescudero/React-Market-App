@@ -1,20 +1,18 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 export default function Create(){
     const {register,handleSubmit,formState: { errors }} = useForm();
-    const cookie=new Cookies;
+    const cookie=new Cookies();
 
     async function onSubmit(data,e){
-        console.log(data);
-        console.log(e);
         const formData=new FormData();
         formData.append('name',data.name);
         formData.append('price',data.price);
         formData.append('description',data.description);
         formData.append('image',data.image[0]);
-        const response= await axios({
+        await axios({
             url:'/products/new',
             method:'post',
             data: formData,
@@ -25,7 +23,7 @@ export default function Create(){
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form-data">
             <label htmlFor="name">Product Name</label>
-            <input type="text" name="name" className="input-data" maxlength="50"
+            <input type="text" name="name" className="input-data" maxLength="50"
                 {...register('name', { required:{value:true,message:'Product Name is Required'},minLength:{ value:5 ,message:'Minimum 5 characters'} })}/>
                     <span className="errors">{errors.name?.message}</span>
             <label htmlFor="price">Price</label>
@@ -37,7 +35,7 @@ export default function Create(){
                 {...register('image', { required: {value: true,message:'Image Required'} })}/>
                     <span className="errors">{errors.image?.message}</span>
             <label htmlFor="description">Description</label>
-            <textarea name="description" wrap="physicaly" rows="3" cols="10" maxlength="100"
+            <textarea name="description" wrap="physicaly" rows="3" cols="10" maxLength="100"
                 {...register('description', { required: {value:true,message:'Description Required'},minLength:{ value:10 ,message:'Minimum 10 characters'} })}/>
                     <span className="errors">{errors.description?.message}</span>
             <button type="submit" className="option option-acces btn-send">Create</button>

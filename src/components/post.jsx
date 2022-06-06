@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import axios from 'axios';
 
 export default function Post(){
-    const {register,handleSubmit,formState: { errors }} = useForm();
+    const {register,handleSubmit} = useForm();
 
     const cookie=new Cookies();
     let [comments,setComments]= useState([]);
@@ -16,7 +16,7 @@ export default function Post(){
     const description=location.state.description;
     const price=location.state.price;
 
-    useEffect(()=>{loadComments()},[0]);
+    useEffect(()=>{loadComments()},[]);
 
     async function loadComments(){
         let id=location.state.id;
@@ -55,7 +55,7 @@ export default function Post(){
     return(
         <div>
             <nav className="navbar">
-              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
+              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" alt="" width="20" height="20"/></button>
               <div className="options">
                 <button className="option-acces option" onClick={()=>loadUser()}>{cookie.get('username')}</button>
               </div>
@@ -64,13 +64,13 @@ export default function Post(){
             <section className="products">
                 <div className="publication">
                     <p className="text-publication title-publication">{name}</p>
-                    <img src={"http://localhost:3000/"+image}  className="post-image-product"/>
+                    <img src={"http://localhost:3000/"+image} alt=""  className="post-image-product"/>
                     <p>{description}</p>
                     <p className="text-publication">Price: ${price}</p>
                     <div className="comments">
                         <form onSubmit={handleSubmit(createComment)} className="form-comment">
-                            <input type="text" name="comment" className="comment-input" maxlength="90"
-                            {...register('comment', { required: true,message:'Comment Required'})}/>
+                            <input type="text" name="comment" className="comment-input" maxLength="90"
+                            {...register('comment')}/>
                             <button type="submit" className="option option-acces">Comment</button>
                         </form>
                         <p className="last-comments">Last Comments</p>

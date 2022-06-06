@@ -8,7 +8,7 @@ export default function Publications(){
     const navigate= useNavigate();
     const [products,setProducts]= useState([]);
 
-    useEffect(()=>{publicationsAll();},[0]);
+    useEffect(()=>{publicationsAll();},[]);
 
     async function publicationsAll(){
         let cookie=new Cookies()    ;
@@ -32,7 +32,7 @@ export default function Publications(){
     return (
         <div>
             <nav className="navbar">
-              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
+              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" alt="" width="20" height="20"/></button>
               <div className="options">
                 <button className="option-acces option" onClick={()=>loadUser()}>{cookie.get('username')}</button>
               </div>
@@ -46,7 +46,7 @@ export default function Publications(){
                             return <div key={index} className="product-item">
                                 <Link to={"/publications/"+item._id} state={{name:item.name,id:item._id,image:item.url_image,description:item.description,price:item.price}} key={item.name} className="product-title">
                                     {item.name}</Link>
-                                <img src={"http://localhost:3000/"+item.url_image}  className="image-product"/>
+                                <img src={"http://localhost:3000/"+item.url_image} alt="" className="image-product"/>
                                 <p>{item.description}</p>
                                 <p className="product-price">${item.price}</p>
                             </div>

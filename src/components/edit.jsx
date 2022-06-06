@@ -9,7 +9,7 @@ export default function Edit(props){
         defaultValues:props.productData
     });
 
-    const cookie=new Cookies;
+    const cookie=new Cookies();
 
     function hideForm(){
         props.setUpdateForm(false);
@@ -37,7 +37,7 @@ export default function Edit(props){
     return(
         <form onSubmit={handleSubmit(Update)} className="form-data formUpdate">
             <label htmlFor="name">Product Name</label>
-            <input type="text" name="name" className="input-data" maxlength="50"
+            <input type="text" name="name" className="input-data" maxLength="50"
                 {...register('name', { required:{value:true,message:'Product Name is Required'},minLength:{ value:5 ,message:'Minimum 5 characters'} })}/>
                     <span className="errors">{errors.name?.message}</span>
             <label htmlFor="price">Price</label>
@@ -49,7 +49,7 @@ export default function Edit(props){
                 {...register('image', { required: {value: true,message:'Image Required'} })}/>
                     <span className="errors">{errors.image?.message}</span>
             <label htmlFor="description">Description</label>
-            <textarea name="description" wrap="physicaly" rows="3" cols="10" maxlength="100"
+            <textarea name="description" wrap="physicaly" rows="3" cols="10" maxLength="100"
                 {...register('description', { required: {value:true,message:'Description Required'},minLength:{ value:10 ,message:'Minimum 10 characters'} })}/>
                     <span className="errors">{errors.description?.message}</span>
             <button onClick={()=>hideForm()} className="option option-acces btn-send">Cancel</button>

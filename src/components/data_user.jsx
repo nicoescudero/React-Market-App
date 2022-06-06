@@ -12,18 +12,19 @@ export default function Data(){
         email:cookie.get('email'),
     }});
     
-    useEffect(()=>{isAuthenticated()},[0]);
+    useEffect(()=>{isAuthenticated();},[]);
 
     async function isAuthenticated(){
         let cookie = new Cookies();
         const response = await axios({
-            url:'/authenticated',
+            url:'http://localhost:3000/authenticated',
             method:'get',
             headers: { Authorization: `Bearer ${cookie.get('token')}` }
         });
         if(response.status === 401)return navigate('/login');
         else return ;
     };
+
     async function Update(data,e){
         let formdata={
             userName:data.username,
@@ -57,10 +58,12 @@ export default function Data(){
         return navigate('/');
     };
 
+    /* eslint-disable no-useless-escape */
+
     return(
         <div>
             <nav className="navbar">
-              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
+              <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" alt="" width="20" height="20"/></button>
                 <div className="options">
                     <Link to="/user" className="option option-acces">{cookie.get('username')}</Link>
                     <button onClick={()=>Logout()} className="option option-acces">Logout</button>
@@ -70,17 +73,21 @@ export default function Data(){
               <section className="main-post">
                   <form onSubmit={handleSubmit(Update)} className="form-data">
                     <label htmlFor="username">Username</label>
-                    <input type="text" name="username" className="input-data" 
-                        {...register('username', { required: true,message:'Username Required'})}/>
+                    <input  type="text" name="username" className="input-data" maxLength="20" 
+                        {...register('username', { required: {value: true,message:'Username Required'}, pattern:{ value: /^[a-z0-9_-]{3,16}$/, message:'Username must not contain spaces and special characters.'}})}/>
+                        <span className="errors">{errors.username?.message}</span>
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" className="input-data" 
-                        {...register('email', { required: true,message:'Email Required'})}/>
+                    <input  type="email" name="email" className="input-data" maxLength="40"
+                        {...register('email', { required: {value:true, message:'Email Required'}, pattern: {value: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/,message: 'Insert a valid Email'}})}/>
+                        <span className="errors">{errors.email?.message}</span>
                     <label htmlFor="password">Old Password</label>
-                    <input type="password" name="password" className="input-data" 
-                        {...register('password', { required: true,message:'Password Required'})}/>
+                    <input  type="password" name="password" className="input-data" maxLength="30"
+                        {...register('password', { required: {value:true,message:'Old Password Required'},minLength:{value:8, message:'Minimum 8 characters'}})}/>
+                        <span className="errors">{errors.password?.message}</span>
                     <label htmlFor="newPassword">New Password</label>
-                    <input type="password" name="newPassword" className="input-data" 
-                        {...register('newPassword', { required: true,message:'Password Required'})}/>
+                    <input  type="password" name="newPassword" className="input-data" maxLength="30"
+                        {...register('newPassword', { required: {value:true,message:'New Password Required'},minLength:{value:8, message:'Minimum 8 characters'}})}/>
+                        <span className="errors">{errors.newPassword?.message}</span>
                     <button type="submit" className="option option-acces btn-send">Update</button>
                   </form>
               </section>
