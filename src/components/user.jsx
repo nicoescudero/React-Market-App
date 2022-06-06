@@ -18,6 +18,13 @@ export default function User(){
         return navigate('/publications');
     }
 
+    async function Logout(){
+        await cookie.remove('token');
+        await cookie.remove('username');
+        await cookie.remove('email');
+        return navigate('/');
+    };
+
     return(
         <div>
             <nav className="navbar">
@@ -25,7 +32,7 @@ export default function User(){
               <div className="options">
                 <h4 className="option-acces title-username-nav">{cookie.get('username')}</h4>
                 <Link to="edit" className="option option-acces">Edit Data</Link>
-                <Link to="/" className="option option-acces">Logout</Link>
+                <button onClick={()=>Logout()} className="option option-acces">Logout</button>
               </div>
             </nav>
             <main className="container">

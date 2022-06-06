@@ -50,13 +50,20 @@ export default function Data(){
         return navigate('/publications');
     }
 
+    async function Logout(){
+        await cookie.remove('token');
+        await cookie.remove('username');
+        await cookie.remove('email');
+        return navigate('/');
+    };
+
     return(
         <div>
             <nav className="navbar">
               <button onClick={()=>loadPublications()} className="option option-main"><img src="/atom.png" width="20" height="20"/></button>
                 <div className="options">
                     <Link to="/user" className="option option-acces">{cookie.get('username')}</Link>
-                    <Link to="/" className="option option-acces">Logout</Link>
+                    <button onClick={()=>Logout()} className="option option-acces">Logout</button>
                 </div>
             </nav>
             <main className="container">

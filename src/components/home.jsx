@@ -16,10 +16,10 @@ const home=()=>{
       <main className="container">
         <section className="main-post">
           <div className="main-resource">
-            <img alt="" src="https://cdn-icons-png.flaticon.com/512/1440/1440602.png" className="main-logo"/>
-            <p className="main-message">Bienvenido a Atomik!</p>
+            <img alt="" src="/triangle.png" className="main-logo"/>
+            <p className="main-message">Welcome to  my web marketplace!</p>
           </div>
-            <img alt="" src="/students.jpg"/>
+            <img alt="" src="/students.jpg" class="img-main"/>
         </section>
       </main>
       </div>
