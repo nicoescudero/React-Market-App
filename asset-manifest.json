@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-Market-App/static/css/main.a930797c.css",
+    "main.js": "/React-Market-App/static/js/main.d808cbbc.js",
+    "static/js/787.72bfe268.chunk.js": "/React-Market-App/static/js/787.72bfe268.chunk.js",
+    "index.html": "/React-Market-App/index.html",
+    "main.a930797c.css.map": "/React-Market-App/static/css/main.a930797c.css.map",
+    "main.d808cbbc.js.map": "/React-Market-App/static/js/main.d808cbbc.js.map",
+    "787.72bfe268.chunk.js.map": "/React-Market-App/static/js/787.72bfe268.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a930797c.css",
+    "static/js/main.d808cbbc.js"
+  ]
+}
